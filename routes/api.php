@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('get/popular/name', [\App\Http\Controllers\UserController::class, 'getName']);
+Route::post('get/count/popular/name', [\App\Http\Controllers\UserController::class, 'getCountName']);
+Route::post('get/average/age', [\App\Http\Controllers\UserController::class, 'averageValue']);
+Route::post('get/range/users', [\App\Http\Controllers\UserController::class, 'ageRange']);
+Route::post('get/all/users', [\App\Http\Controllers\UserController::class, 'getAllItem']);
