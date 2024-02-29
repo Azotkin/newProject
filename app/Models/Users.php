@@ -9,4 +9,6 @@ class Users extends Model
 {
     use HasFactory;
     protected $table = 'state_users';
+
+    protected $guarded = [];
 }

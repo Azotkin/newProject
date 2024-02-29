@@ -23,3 +23,5 @@ Route::post('get/count/popular/name', [\App\Http\Controllers\UserController::cla
 Route::post('get/average/age', [\App\Http\Controllers\UserController::class, 'averageValue']);
 Route::post('get/range/users', [\App\Http\Controllers\UserController::class, 'ageRange']);
 Route::post('get/all/users', [\App\Http\Controllers\UserController::class, 'getAllItem']);
+Route::post('update/user/data', [\App\Http\Controllers\UserController::class, 'changeUser']);
+Route::post('new/user/data', [\App\Http\Controllers\UserController::class, 'saveUser']);

@@ -16,6 +16,7 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+        $count = 300;
         $faker = Factory::create('ru_RU');
         $educations = [
             'Основное',
@@ -28,13 +29,14 @@ class UserSeeder extends Seeder
             'Женский'=>'female',
         ];
 
-        for ($i = 1; $i <= 110; $i++) {
+        for ($i = 1; $i <= $count; $i++) {
             $gender = array_rand($genders, 1);
-            $name = explode(' ', $faker->name($genders[$gender]));
+            $fullName = explode(' ', $faker->name($genders[$gender]));
+
             DB::table('state_users')->insert([
-                'firstname' => $name[0],
-                'surname' => $name[1],
-                'lastname' => $name[2],
+                'firstname' => $faker->firstName($genders[$gender]),
+                'surname' => $fullName[2],
+                'lastname' => $faker->lastName($genders[$gender]),
                 'gender' => $gender,
                 'age' => rand(15, 65),
                 'education' => $educations[array_rand($educations, 1)],
